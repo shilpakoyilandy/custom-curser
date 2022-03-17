@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom curser</title>
+<link rel="stylesheet"href="style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="wrapper">
+        <nav><ul class="menu">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul></nav>
+        <article>
+            <h2><a href="#">Lorem ipsum dolor sit.</a></h2>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, excepturi consequuntur eius laboriosam itaque deserunt voluptates, dolor dolorum, reprehenderit expedita enim odio! Maxime dignissimos odio ad magnam repudiandae error neque deleniti consectetur, id in corrupti?</div>
+        </article>
+        <article>
+            <h2><a href="#">Vero, magnam assumenda! Voluptatem.</a></h2>
+            <div>Quaerat repellat ipsam perspiciatis maxime, odio saepe quasi dolorem ut, earum asperiores officiis id neque exercitationem. Veniam sapiente voluptas eligendi placeat amet est eveniet, consequatur, quasi voluptatibus consectetur consequuntur rem, itaque ullam voluptatum hic repellendus!</div>
+        </article>
+        <article>
+            <h2><a href="#">Tempore voluptatem provident aperiam?</a></h2>
+            <div>Eaque, nesciunt. Ut magni provident quisquam quae laboriosam impedit, at soluta voluptates itaque accusamus mollitia suscipit officiis doloribus inventore tempora nam consequuntur corrupti? Exercitationem voluptate reprehenderit nobis deserunt vero distinctio esse nemo amet. Voluptatem, quidem.</div>
+        </article>
+    </div>
+    <script>
+        (function(){
+            const cursor=document.querySelector(".cursor")
+            const links=document.querySelectorAll("a")
+            document.addEventListener("mousemove",function(event){
+                let xPos=event.clientX
+                let yPos=event.clientY
+                cursor.style.transform=`translate3d(calc(${xPos}px - 50%),calc(${yPos}px - 50%),0)`
+            })
+            links.forEach(function(link){
+                link.addEventListener("mouseover",function(){
+                    cursor.classList.add("hovered")
+                })
+                link.addEventListener("mouseleave",function(){
+                    cursor.classList.remove("hovered")
+                })
+            })
+        })()
+    </script>
+</body>
+</html>
